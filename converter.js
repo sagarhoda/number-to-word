@@ -16,7 +16,6 @@ function HtmlElementsCreator() {
 
 		textBox.setAttribute('id', 'userInput');
 		textBox.setAttribute('type', 'number');
-		textBox.setAttribute('max', '9999');		
 		submitButton.appendChild(buttonText);
 		displayDiv.setAttribute('id', 'answer');
 
