@@ -10,20 +10,20 @@ function HtmlElementsCreator() {
 	
 	this.create = function() {
 		var textBox = document.createElement('input');
-		var submitButton = document.createElement('button');
 		var buttonText = document.createTextNode('Convert');
 		var displayDiv = document.createElement('div');
 
 		textBox.setAttribute('id', 'userInput');
 		textBox.setAttribute('type', 'number');
-		submitButton.appendChild(buttonText);
+		textBox.setAttribute('placeholder', 'Enter Number');
+		textBox.setAttribute('style', 'width: 200px; height: 20px; font-size: 16px; text-align: center')
+		displayDiv.setAttribute('style', 'width: 1000px; margin: auto; text-align: center; font-size: 20px');
 		displayDiv.setAttribute('id', 'answer');
 
 		document.body.appendChild(textBox);
-		document.body.appendChild(submitButton);
 		document.body.appendChild(displayDiv);
 
-		submitButton.onclick = function() {
+		textBox.onchange = function() {
 			var input = document.getElementById('userInput').value;
 
 			if(input == ''){
@@ -46,7 +46,7 @@ function Converters() {
 		var ones = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine'];
 		var tens = ['Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen', 'Eighteen', 'Nineteen'];
 		var twenties = ['','','Twenty','Thirty','Fourty','Fifty','Sixty','Seventy','Eighty','Ninety']
-		var words = ['','','','Hundred','Thousand', 'Thousand','','Lakh'];
+		var words = ['','','','Hundred','Thousand', 'Thousand','Lakh','Lakh'];
 		var final = [];
 		var displayDiv = document.getElementById('answer');
 
@@ -119,7 +119,7 @@ function Converters() {
 		for(var i=0; i<=numberLength; i++){
 			final.shift();
 		}
-		console.log(final);
+
 		displayDiv.innerHTML = final.join(' ') + ' Rupees Only';
 
 	};
