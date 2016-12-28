@@ -97,7 +97,6 @@ function Converters() {
 					final[5] = '';
 					
 					if(splittedArray[numberLength-i+2] == 0){
-						console.log('remove thousands');
 						final[3] = '';
 					}
 
