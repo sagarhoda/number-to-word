@@ -72,6 +72,9 @@ function Converters() {
 			}
 
 			else if(i == 4){
+					if(splittedArray[numberLength-i+1] == 0){
+						final[2] = '';
+					}
 					final.push(ones[splittedArray[numberLength-i]] + ' ' + prefix);
 			}
 
@@ -111,6 +114,7 @@ function Converters() {
 		for(var i=0; i<=numberLength; i++){
 			final.shift();
 		}
+		console.log(final);
 		displayDiv.innerHTML = final.join(' ') + ' Rupees Only';
 
 	};
