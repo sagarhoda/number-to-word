@@ -95,6 +95,12 @@ function Converters() {
 			else if(i == 7){
 				if(splittedArray[numberLength-i]){
 					final[5] = '';
+					
+					if(splittedArray[numberLength-i+2] == 0){
+						console.log('remove thousands');
+						final[3] = '';
+					}
+
 					if(splittedArray[numberLength-i] == 1){
 						final.push(tens[splittedArray[numberLength-i+1]] + ' ' + prefix);
 					}
