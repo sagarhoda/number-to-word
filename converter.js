@@ -47,7 +47,7 @@ function Converters() {
 		var ones = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine'];
 		var tens = ['Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen', 'Eighteen', 'Nineteen'];
 		var twenties = ['','','Twenty','Thirty','Fourty','Fifty','Sixty','Seventy','Eighty','Ninety']
-		var words = ['','','','Hundred','Thousand', 'Thousand','Lakh'];
+		var words = ['','','','Hundred','Thousand', 'Thousand','','Lakh'];
 		var final = [];
 		var displayDiv = document.getElementById('answer');
 
@@ -89,6 +89,19 @@ function Converters() {
 			else if(i == 6){
 				final.push(ones[splittedArray[numberLength-i]] + ' ' + prefix);
 			}
+
+			else if(i == 7){
+				if(splittedArray[numberLength-i]){
+					final[5] = '';
+					if(splittedArray[numberLength-i] == 1){
+						final.push(tens[splittedArray[numberLength-i+1]] + ' ' + prefix);
+					}
+					else{
+						final[5] = (ones[splittedArray[numberLength-i+1]]) + ' ' + prefix;
+						final.push(twenties[splittedArray[numberLength-i]]);
+					}
+				}
+			}
 			
 		}
 
@@ -99,7 +112,6 @@ function Converters() {
 		for(var i=0; i<=numberLength; i++){
 			final.shift();
 		}
-		
 		displayDiv.innerHTML = final.join(' ') + ' Rupees Only';
 
 	};
